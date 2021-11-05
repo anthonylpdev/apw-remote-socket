@@ -8,7 +8,6 @@
     - tous types de context canvas autorisés (2D, WebGL, WebGL2, etc )
     - utilisation de librairies et frameworks tierces autorisés (THREE / PIXI / GSAP / etc)
 
-
 ## Livrable
 - Une vidéo de démonstration de l'expérience (backup au cas où l'expérience plante pendant le live)
 - Code à push sur le repo dans votre branche 'ft-pseudo'
@@ -25,7 +24,13 @@ Installation des dépendances :
 yarn
 ```
 
-Ouvrir un premier terminal pour lancer le serveur websocket (le garder ouvert)
+- Insérer l'URL de votre IP locale dans les fichiers suivants :
+```
+src/script.js => ligne 25
+src/World.js => ligne 72
+```
+
+- Ouvrir un premier terminal pour lancer le serveur websocket (le garder ouvert)
 
 ```
 yarn serve
@@ -34,8 +39,11 @@ yarn serve
 Ouvrir un deuxième terminal pour compiler la partie front
 
 ```
-yarn dev
+yarn watch
 ```
+
+Ouvrir le localhost sur le port 8000 (http://localhost:8000) un device d'une taille supérieure à 1200px ET sur un deuxième device d'une taille inférieure à 1200px.
+
 
 ## Inspiration
 
