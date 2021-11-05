@@ -1,0 +1,52 @@
+{
+  "name": "alp-three-boilerplate",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "",
+  "author": "",
+  "license": "MIT",
+  "scripts": {
+    "clean": "rm dist/bundle.js",
+    "dev": "webpack -d --mode development",
+    "serve": "node src/server.js",
+    "watch": "webpack-dev-server --host 0.0.0.0",
+    "prod": "webpack -p --mode production"
+  },
+  "dependencies": {
+    "dat.gui": "^0.7.7",
+    "express": "^4.17.1",
+    "glsl-noise": "^0.0.0",
+    "glslify": "^7.1.1",
+    "glslify-loader": "^2.0.0",
+    "gsap": "^3.8.0",
+    "imagesloaded": "^4.1.4",
+    "nice-color-palettes": "^3.0.0",
+    "socket.io": "^4.3.1",
+    "socket.io-client": "^4.3.2",
+    "three": "^0.130.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
+    "babel-loader": "^8.1.0",
+    "core-js": "^3.6.5",
+    "css-loader": "^3.6.0",
+    "file-loader": "^6.0.0",
+    "glslify-import": "^3.1.0",
+    "html-loader": "^1.1.0",
+    "html-webpack-plugin": "^4.3.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "node-sass": "^4.14.1",
+    "raw-loader": "^4.0.1",
+    "regenerator-runtime": "^0.13.7",
+    "reset-css": "^5.0.1",
+    "sass-loader": "^9.0.2",
+    "stats.js": "^0.17.0",
+    "style-loader": "^1.2.1",
+    "three-orbit-controls": "^82.1.0",
+    "webpack": "^4.44.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-glsl-loader": "^1.0.1"
+  }
+}
