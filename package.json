@@ -8,19 +8,22 @@
   "scripts": {
     "clean": "rm dist/bundle.js",
     "dev": "webpack -d --mode development",
-    "serve": "node src/server.js",
+    "serve": "node ./server.js",
     "watch": "webpack-dev-server --host 0.0.0.0",
     "prod": "webpack -p --mode production"
   },
   "dependencies": {
     "dat.gui": "^0.7.7",
     "express": "^4.17.1",
+    "fs": "^0.0.1-security",
     "glsl-noise": "^0.0.0",
     "glslify": "^7.1.1",
     "glslify-loader": "^2.0.0",
     "gsap": "^3.8.0",
+    "https": "^1.0.0",
     "imagesloaded": "^4.1.4",
     "nice-color-palettes": "^3.0.0",
+    "path": "^0.12.7",
     "socket.io": "^4.3.1",
     "socket.io-client": "^4.3.2",
     "three": "^0.130.1"

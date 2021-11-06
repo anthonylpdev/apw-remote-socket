@@ -34,7 +34,6 @@ src/World.js => ligne 72
 
 ```
 yarn serve
-
 ```
 Ouvrir un deuxième terminal pour compiler la partie front
 

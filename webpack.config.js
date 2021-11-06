@@ -1,6 +1,12 @@
-const path = require('path');
+const https = require('https');
+const fs = require('fs');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const path = require('path')
+const {createServer} = require('https')
+const {readFileSync} = require('fs')
+
+const basePath = path.dirname(__filename);
 
 module.exports = {
   entry: {
@@ -80,7 +86,12 @@ module.exports = {
     contentBase: path.join(__dirname, "dist"),
     compress: true,
     port: 8000,
-    stats: 'errors-only'
+    stats: 'errors-only',
+    //https: true //TODO: deviceorientation trigger only with HTTPS
+    https: {
+      key: readFileSync(basePath + '/mkcert/localhost+1-key.pem'),
+      cert: readFileSync(basePath + '/mkcert/localhost+1.pem'),
+    },
   },
 
   plugins: [
