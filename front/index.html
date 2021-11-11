@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PATMUW XP</title>
+    <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      :root {
+        --canvas-size: 810px;
+      }
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: monospace;
+      }
+      body {
+        background-color: #888;
+      }
+      h1 {
+        margin-top: 0.5rem;
+        text-align: center;
+      }
+      h2 { font-size: 1.3rem }
+      h3 { margin-bottom: 0.5rem }
+      h4 { margin-bottom: 1rem }
+
+      canvas {
+        display: block;
+        position: absolute;
+        top: 60px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: var(--canvas-size);
+        height: var(--canvas-size);
+        background-color: #ddd;
+        border: solid #333;
+        border-width: 2px;
+        box-shadow: 0 0 1.5rem #333;
+      }
+      canvas:last-child {
+        background-color: transparent;
+      }
+      v-modal {
+        position: absolute;
+        top: 870px;
+        left: 50%;
+        transform: translateX(-50%);
+        width:  80vw;
+        text-align: center;
+        padding: 1rem;
+        user-select: none;
+      }
+      v-modal.full{
+        top: 70px;
+        z-index: 600;
+      }
+      #full {
+        background-color: white;
+        width: 30vw;
+      }
+      h1 span {
+        display: inline-block;
+      }
+      h1 span::first-letter {
+        color: #524c3c;
+      }
+      p {
+        font-size: 1rem;
+        margin: 1rem;
+      }
+      .hidden {
+        display: none;
+      }
+      block-selector, god-powers, console-log {
+        position: absolute;
+        top: 170px;
+        left: calc(50% - var(--canvas-size) / 2 - 10rem);
+        background-color: #aaa;
+        width:  11rem;
+        padding: 0.5rem 1rem 0.5rem 0.7rem;
+        border: solid #333;
+        border-width: 2px 0 2px 2px 2px;
+        box-shadow: -0.2rem 0 .4rem #333;
+        user-select: none;
+      }
+      god-powers {
+        top: 570px;
+      }
+      console-log {
+        top: 300px;
+        left: calc(50% + var(--canvas-size) / 2 - 1rem);
+        height: 40rem;
+        width:  13rem;
+        padding-left: 2.5rem;
+        overflow: hidden;
+      }
+      a-block, god-power {
+        font-size: 1.2rem;
+        letter-spacing: 0.05rem;
+        font-weight: bold;
+        display: inline-block;
+        padding: 0 0 0.3rem 0;
+        cursor: pointer;
+      }
+      god-power {
+        padding-bottom: 0.5rem;
+      }
+      [data-power="gaia"]::first-letter {
+        display: inline-block;
+        padding-right: 0.4rem;
+      }
+      a-block.selected { font-size: 1.4rem }
+      god-power:hover, a-block:hover{ color: white }
+      a-block::before {
+        display: inline-block;
+        margin-right: 0.4rem;
+        content: '■';
+      }
+      a-block.selected::after {
+        display: inline-block;
+        font-size: 1.7rem;
+        margin-left: 0.4rem;
+        font-weight: bold;
+        content: '<';
+      }
+      #erase::before, #erase::after { color: #ddd }
+      #sand::before, #sand::after { color: #9F9269 }
+      #water::before, #water::after { color: #165487 }
+      #stone::before, #stone::after { color: #757575 }
+      #smoke::before, #smoke::after { color: #444 }
+      log-entry {
+        display: block;
+        padding: 0.5rem 0;
+        border-bottom: solid 1px #9F9269;
+        opacity: 1;
+	      animation-name: fadeInOpacity;
+	      animation-iteration-count: 1;
+	      animation-timing-function: ease-in;
+	      animation-duration: 1s;
+      }
+      @keyframes fadeInOpacity {
+        0% { opacity: 0 }
+        100% { opacity: 1 }
+      }
+    </style>
+    <script type="module" src="main.mjs"></script>
+  </head>
+  <body>
+    <h1>
+      <span>Persistant</span>
+      <span>Automaton</span>
+      <span>Tiny</span>
+      <span>Multi</span>-<span>Users</span>
+      <span>World</span>
+    </h1>
+    <block-selector>
+      <a-block id="erase" data-particule="0">Erase</a-block>
+      <a-block id="stone" data-particule="1">Stone</a-block>
+      <a-block id="sand" data-particule="2" class="selected">Sand&nbsp;</a-block>
+      <a-block id="water" data-particule="3">Water</a-block>
+      <a-block id="smoke" data-particule="4">Smoke</a-block>
+    </block-selector>
+    <god-powers class="hidden">
+      <h2>God Powers</h2>
+      <h4><span id="cooldown">10</span>s cooldown</h4>
+      <god-power data-power="reverse">⇵  Reverse</god-power>
+      <god-power data-power="gaia">⥉ Gaia</god-power>
+      <god-power data-power="nuke">☢ Mini Nuke</god-power>
+      <god-power data-power="renounce">⮾ Renounce</god-power>
+    </god-powers>
+    <console-log></console-log>
+    <v-modal>
+      <h3>Made by Synn</h3>
+    </v-modal>
+    <v-modal class="full" id="loading">
+      <h3>Loading the world, please wait ...</h3>
+    </v-modal>
+    <v-modal class="full hidden" id="full">
+      <h3>Sry, the server is full. Try again later !</h3>
+      <p>Reload the page to check if someone has leave.</p>
+    </v-modal>
+  </body>
+</html>
