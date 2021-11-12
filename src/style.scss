@@ -10,12 +10,16 @@ body
     overflow: hidden;
 }
 
+$bg: #0FA3B1;
+$main: #EDDEA4;
+
 .landing-page {
+    z-index: 1;
     padding: 2rem 1rem;
     position: absolute;
     inset: 0;
     color: #D9E5D6;
-    background: #0FA3B1;
+    background: $bg;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -26,8 +30,8 @@ body
 
         button {
             background: none;
-            color: #EDDEA4;
-            border: 1px solid #EDDEA4;
+            color: $main;
+            border: 1px solid $main;
             border-radius: 4px;
             padding: 10px 20px;
             font: inherit;
@@ -52,6 +56,10 @@ body
 
 
 .teacher {
+    position: absolute;
+    inset: 0;
+    background: $bg;
+
     .apw {
         display: flex;
         justify-content: center;
