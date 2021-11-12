@@ -7,6 +7,8 @@ export default class TeacherExperience {
 
         this.billboardLink = document.querySelector('[data-name=billboard]')
         const tvLink = document.querySelector('[data-name=tv]')
+        this.home = document.querySelector('[data-name=home]')
+        this.erase = document.querySelector('[data-name=erase]')
 
         this.prevX = null
         this.prevY = null
@@ -85,7 +87,6 @@ export default class TeacherExperience {
             this.drawEnabled = true
             const [x, y] = [e.offsetX, e.offsetY]
             this.draw(x, y)
-            console.log(e)
         })
 
         this.ctx.canvas.addEventListener('mouseup', e => {
@@ -101,11 +102,27 @@ export default class TeacherExperience {
             this.draw(x, y)
         })
 
+
+        // Click on link
         this.billboardLink.addEventListener('click', (e) => {
             e.preventDefault()
+            this.socketClient.emit('FOCUS_BILLBOARD')
             document.querySelector('.app').style.display = 'none'
             this.ctx.canvas.style.display = 'block'
             this.ctx.canvas.requestFullscreen()
+        })
+
+        this.home.addEventListener('click', (e) => {
+            e.preventDefault()
+            this.socketClient.emit('BASE_CAMERA')
+            document.querySelector('.app').style.display = 'block'
+            this.ctx.canvas.style.display = 'none'
+        })
+
+        this.erase.addEventListener('click', (e) => {
+            e.preventDefault()
+            this.resize()
+            this.socketClient.emit('CLEAR_BILLBOARD')
         })
 
         window.addEventListener('resize', () => {

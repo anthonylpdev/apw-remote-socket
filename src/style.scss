@@ -10,16 +10,39 @@ body
     overflow: hidden;
 }
 
+.landing-page {
+    padding: 2rem 1rem;
+    position: absolute;
+    inset: 0;
+    color: #D9E5D6;
+    background: #0FA3B1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .btns {
+        margin-top: 20px;
+
+        button {
+            background: none;
+            color: #EDDEA4;
+            border: 1px solid #EDDEA4;
+            border-radius: 4px;
+            padding: 10px 20px;
+            font: inherit;
+            cursor: pointer;
+            //outline: #EDDEA4;
+        }
+    }
+}
+
 .webgl, .billboard
 {
     position: fixed;
     top: 0;
     left: 0;
     outline: none;
-
-    @media all and (max-width: 900px) {
-        display: none;
-    }
 }
 
 .billboard {
@@ -28,22 +51,29 @@ body
 }
 
 
-.mobile {
-    display: none;
-
-    @media all and (max-width: 900px) {
-        display: block;
-        flex-direction: column;
+.teacher {
+    .apw {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
     }
 
-    //@media only screen and (orientation:portrait){
-    //    height: 100vw;
-    //    -webkit-transform: rotate(90deg);
-    //    -moz-transform: rotate(90deg);
-    //    -o-transform: rotate(90deg);
-    //    -ms-transform: rotate(90deg);
-    //    transform: rotate(90deg);
-    //}
+    .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 2rem;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 100px;
+
+        p {
+            margin: auto;
+
+            svg {
+                width: 100px;
+            }
+        }
+    }
 
     .billboard-mobile {
         display: none;

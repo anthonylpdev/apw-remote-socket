@@ -21,4 +21,19 @@ io.on('connect', (socket) => {
     socket.emit('DRAW_CLASSROOM', socket.id)
     socket.broadcast.emit('DRAW_CLASSROOM', data)
   })
+
+  socket.on('FOCUS_BILLBOARD', (data) => {
+    socket.emit('FOCUS_BILLBOARD', socket.id)
+    socket.broadcast.emit('FOCUS_BILLBOARD', data)
+  })
+
+  socket.on('BASE_CAMERA', (data) => {
+    socket.emit('BASE_CAMERA', socket.id)
+    socket.broadcast.emit('BASE_CAMERA', data)
+  })
+
+  socket.on('CLEAR_BILLBOARD', (data) => {
+    socket.emit('CLEAR_BILLBOARD', socket.id)
+    socket.broadcast.emit('CLEAR_BILLBOARD', data)
+  })
 })

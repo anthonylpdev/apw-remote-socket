@@ -1,5 +1,6 @@
 import * as THREE from 'three'
 import io from 'socket.io-client'
+import gsap from 'gsap'
 
 import Debug from './Utils/Debug.js'
 import Sizes from './Utils/Sizes.js'
@@ -76,6 +77,40 @@ export default class Experience
                 x: event.x * this.billBoard.ctx.canvas.width,
                 y: event.y * this.billBoard.ctx.canvas.height,
             })
+        })
+
+        this.socketClient.on('FOCUS_BILLBOARD', () => {
+            const tl = gsap.timeline()
+            tl.to(this.camera.instance.position, {
+                x: 0,
+                y: 1.838,
+                z: 2.698,
+                duration: 2,
+                ease: "power2",
+                onUpdate: () => {
+                    this.camera.instance.lookAt(new THREE.Vector3(-0.2, 1.238, -3))
+                }
+            })
+            // this.camera.instance.position.set(0, 1.838, 2.698)
+
+        })
+
+        this.socketClient.on('BASE_CAMERA', () => {
+            const tl = gsap.timeline()
+            tl.to(this.camera.instance.position, {
+                x: 2.6,
+                y: 2,
+                z: 6,
+                duration: 1.4,
+                ease: "power3",
+                onUpdate: () => {
+                    this.camera.instance.lookAt(new THREE.Vector3(0, 0.5, -2))
+                }
+            })
+        })
+
+        this.socketClient.on('CLEAR_BILLBOARD', () => {
+            this.billBoard.ctx.clearRect(0, 0, this.billBoard.ctx.canvas.width, this.billBoard.ctx.canvas.height);
         })
     }
 

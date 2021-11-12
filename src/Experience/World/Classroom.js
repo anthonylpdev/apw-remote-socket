@@ -59,6 +59,5 @@ export default class Classroom
         this.billboardMesh.material.map = this.experience.billBoard.texture
         this.billboardMesh.material.needsUpdate = true
         // this.experience.billBoard.texture.needsUpdate = true
-        // console.log(this.billboardMesh.material)
     }
 }
