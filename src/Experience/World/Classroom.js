@@ -20,6 +20,8 @@ export default class Classroom
         // Resource
         this.resource = this.resources.items.classroomModel
 
+        this.antho = this.resources.items.anthoTexture
+
         this.setModel()
     }
 
@@ -44,6 +46,10 @@ export default class Classroom
                     })
 
                     this.billboardMesh = child
+                }
+
+                if (child.name === 'Screen') {
+                    this.screenMesh = child
                 }
 
                 child.castShadow = true

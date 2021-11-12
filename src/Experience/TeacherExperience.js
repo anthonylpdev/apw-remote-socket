@@ -6,7 +6,7 @@ export default class TeacherExperience {
         this.socketClient = io('192.168.1.67:3000')
 
         this.billboardLink = document.querySelector('[data-name=billboard]')
-        const tvLink = document.querySelector('[data-name=tv]')
+        this.TV = document.querySelector('[data-name=tv]')
         this.home = document.querySelector('[data-name=home]')
         this.erase = document.querySelector('[data-name=erase]')
 
@@ -110,6 +110,11 @@ export default class TeacherExperience {
             document.querySelector('.app').style.display = 'none'
             this.ctx.canvas.style.display = 'block'
             this.ctx.canvas.requestFullscreen()
+        })
+
+        this.TV.addEventListener('click', (e) => {
+            e.preventDefault()
+            this.socketClient.emit('TV_ON')
         })
 
         this.home.addEventListener('click', (e) => {

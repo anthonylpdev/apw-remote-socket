@@ -112,6 +112,13 @@ export default class Experience
         this.socketClient.on('CLEAR_BILLBOARD', () => {
             this.billBoard.ctx.clearRect(0, 0, this.billBoard.ctx.canvas.width, this.billBoard.ctx.canvas.height);
         })
+
+        this.socketClient.on('TV_ON', () => {
+            this.world.classroom.antho.flipY = false
+            this.world.classroom.screenMesh.material = new THREE.MeshBasicMaterial({
+                map: this.world.classroom.antho,
+            })
+        })
     }
 
     update()

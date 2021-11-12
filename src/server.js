@@ -36,4 +36,9 @@ io.on('connect', (socket) => {
     socket.emit('CLEAR_BILLBOARD', socket.id)
     socket.broadcast.emit('CLEAR_BILLBOARD', data)
   })
+
+  socket.on('TV_ON', (data) => {
+    socket.emit('TV_ON', socket.id)
+    socket.broadcast.emit('TV_ON', data)
+  })
 })

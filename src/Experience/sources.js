@@ -16,5 +16,10 @@ export default [
         name: 'classroomModel',
         type: 'gltfModel',
         path: 'models/Classroom/classroom.glb'
+    },
+    {
+        name: 'anthoTexture',
+        type: 'texture',
+        path: 'img/antho.jpeg'
     }
 ]
