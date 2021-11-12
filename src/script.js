@@ -11,7 +11,7 @@ class Base {
     // this.base()
 
     this.isMobileTablet = !!navigator.maxTouchPoints
-    this.socketClient = io('https://192.168.1.16:3000', {secure: true})
+    this.socketClient = io('https://192.168.1.24:3000', {secure: true})
 
     if (this.isMobileTablet) {
       document.querySelector('body').classList.add('is-mobile')

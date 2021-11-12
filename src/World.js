@@ -69,7 +69,7 @@ export default class World {
 
   watcher() {
     //TODO: définir l'URL de prod de votre serveur websocket ou l'URL sur le réseau local pendant le dev
-    this.socketClient = io('https://192.168.1.16:3000', {secure: true})
+    this.socketClient = io('https://192.168.1.24:3000', {secure: true})
     this.socketClient.on('CAMERA_UP', (event) => {
       this.vector.y += 2
     })
@@ -85,7 +85,7 @@ export default class World {
     this.socketClient.on('GYROMETER', (event) => {
       // const data = Math.min(Math.max(event/90, -1), 1);
       const data = Math.round(Math.min(Math.max(event, -90), 90));
-      console.log(data);
+      console.log(data + ' degrés');
     })
 
   }
