@@ -9,7 +9,7 @@
     - utilisation de librairies et frameworks tierces autorisés (THREE / PIXI / GSAP / etc)
 
 ## Démo
-reveal à 18h (ne pas regarder le code pour ce spoil la chose !)
+https://patmuw.onivers.com
 
 ## Installation
 
