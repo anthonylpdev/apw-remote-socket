@@ -130,7 +130,7 @@ WS.on_godkicked = (data, cid) => {
   log(`The God Anon${cid} lose his throne. Take the place, do the kode !`);
 }
 
-keyboard.onCombo('ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'KeyB', 'KeyA', () => {
+keyboard.onCombo('ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'B', 'A', () => {
   WS.sendJson('make-me-god');
 });
 

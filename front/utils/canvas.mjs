@@ -1,8 +1,11 @@
+let canvasId = 1;
+
 // Minimalist Canvas manager
 export default class {
 
   constructor({draw = () => 0, blur = false, shadowColor = 'black'} = {}) {
     let canvas = document.createElement('canvas');
+    canvas.classList.add(`synn-canvas-${canvasId++}`);
     document.body.appendChild(canvas);
     this.ctx = canvas.getContext('2d');
     this.ctx.canvas.width = this.ctx.canvas.clientWidth;

@@ -2,7 +2,7 @@ import PubSub from "./pubsub.mjs";
 
 export default class {
 
-  constructor({repeat = false, caseSensitive = false, maxHistory = 10, listenTo = window, useCode = true} = {}) {
+  constructor({repeat = false, caseSensitive = false, maxHistory = 10, listenTo = window, useCode = false} = {}) {
     this.options = {repeat, caseSensitive, maxHistory, listenTo, useCode};
     this.pubSub = new PubSub();
     this.keyPressed = new Set();
